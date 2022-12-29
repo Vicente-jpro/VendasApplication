@@ -1,5 +1,11 @@
+
+#Used to configure enviroment
+spring:
+  profiles:
+    active:
+    - development
+  
 server:
  port: 8080
-
-app:
-  name: My System Java Spring
+ servlet:
+    context-path: /sistema-venda
