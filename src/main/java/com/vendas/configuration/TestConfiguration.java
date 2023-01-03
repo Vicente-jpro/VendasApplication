@@ -1,4 +1,4 @@
-package com.vendas.Configuration;
+package com.vendas.configuration;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
