@@ -47,6 +47,12 @@ public class ItemPedido {
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
+
+	@Override
+	public String toString() {
+		return "ItemPedido [idTemPedido=" + idTemPedido + ", pedido=" + pedido + ", produto=" + produto
+				+ ", quantidade=" + quantidade + "]";
+	}
 	
 	
 

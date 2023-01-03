@@ -1,11 +1,29 @@
 package com.vendas;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import com.vendas.models.Cliente;
+import com.vendas.repository.ClienteRepository;
 
 @SpringBootApplication
 public class VendasApplication {
 
+	@Bean
+	public CommandLineRunner create(@Autowired ClienteRepository clienteRepository) {
+		return args ->{
+			clienteRepository.create( new Cliente("Vicente Simão") );
+			clienteRepository.create( new Cliente("Xavier Ruben") );
+			List<Cliente> clientes = clienteRepository.getAll();
+			clientes.forEach(System.out::println);
+		};
+	}
+	
 	public static void main(String[] args) {
 		SpringApplication.run(VendasApplication.class, args);
 	}
