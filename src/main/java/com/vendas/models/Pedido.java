@@ -12,9 +12,10 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Pedido {	
-	private int id_pedido;
+	
+	private Integer id_pedido;
     private Cliente cliente;
-    private int total;
+    private Integer total;
 	private LocalDate dataPedido;
 
 }

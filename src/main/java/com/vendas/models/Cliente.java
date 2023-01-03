@@ -14,7 +14,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Cliente {
 	
-	private int id_cliente;
+	private Integer id_cliente;
 	private String nome;
 
 }

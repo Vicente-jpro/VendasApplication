@@ -11,7 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ItemPedido {
 
-	private int id_tem_pedido;
+	private Integer id_tem_pedido;
 	private Pedido pedido;
     private Produto produto;
 	private int quantidade;
