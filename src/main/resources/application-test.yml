@@ -1,13 +1,14 @@
 application:
   name: TEST ENVIROMENT
   
+# Database h2 connection
 spring:
   datasource:
     url: jdbc:h2:mem:testdb
     driver-class-name: org.h2.Driver
     username: sa
     password: password
-  
+    
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
   
@@ -26,4 +27,3 @@ spring:
 #      <groupId>com.h2database</groupId>
 #      <artifactId>h2</artifactId>
 #    </dependency>
-      
