@@ -19,10 +19,16 @@ public class VendasApplication {
 		return args ->{
 			clienteRepository.create( new Cliente("Vicente Simão") );
 			clienteRepository.create( new Cliente("Xavier Ruben") );
+			clienteRepository.create( new Cliente("Madalena Xavier") );
 			clienteRepository.update( new Cliente( 1, "Luísa Anibal"));
 			
 			List<Cliente> clientes = clienteRepository.getAll();
 			clientes.forEach(System.out::println);
+			
+			clienteRepository.delete( new Cliente(2, null) );
+			
+			List<Cliente> clientes2 = clienteRepository.getAll();
+			clientes2.forEach(System.out::println);
 		};
 	}
 	

@@ -18,25 +18,30 @@ public class ClienteRepository {
 	private JdbcTemplate jdbcTemplate;
 	
 	public Cliente create(Cliente cliente) {
-		String sql = "INSERT INTO CLIENTES (nome) VALUES(?)";
+		String sql = "INSERT INTO clientes (nome) VALUES(?)";
 		
 		jdbcTemplate.update(sql, new Object[] {cliente.getNome()});
 		return cliente;
 	}
 	
 	public Cliente update(Cliente cliente) {
-		String sql = "UPDATE CLIENTES SET nome = ? where id_cliente = ?";
+		String sql = "UPDATE clientes SET nome = ? WHERE id_cliente = ?";
 		jdbcTemplate.update(sql, new Object[] {cliente.getNome(), cliente.getIdCliente()});
 		return cliente;
 	}
 	
+	public void delete(Cliente cliente) {
+		String sql = "DELETE FROM clientes WHERE id_cliente = ?";
+		jdbcTemplate.update(sql, new Object[] {cliente.getIdCliente()});
+	}
+	
 	public List<Cliente> getAll(){
-		String sql = "SELECT * FROM CLIENTES";
+		String sql = "SELECT * FROM clientes";
 		return jdbcTemplate.query(sql, new RowMapper<Cliente>() {
 
 			@Override
 			public Cliente mapRow(ResultSet rs, int rowNum) throws SQLException {
-				return new Cliente(rs.getInt("ID_CLIENTE"),  rs.getString("nome"));
+				return new Cliente(rs.getInt("id_cliente"),  rs.getString("nome"));
 			}
 			
 		});
