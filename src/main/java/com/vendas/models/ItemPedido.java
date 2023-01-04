@@ -1,14 +1,27 @@
 package com.vendas.models;
 
-public class ItemPedido {
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-	private Integer idTemPedido;
+@Entity
+@Table( name = "ITEM_PEDIDOS" )
+public class ItemPedido {
+	@Id @GeneratedValue( strategy = GenerationType.AUTO)
+	@Column( name = "ID_ITEM_PEDIDO")
+	private Integer idItemPedido;
+	
 	private Pedido pedido;
     private Produto produto;
-	private int quantidade;
+    
+	@Column( name = "QUANTIDADE")
+    private int quantidade;
 	
-	public ItemPedido(Integer idTemPedido, Pedido pedido, Produto produto, int quantidade) {
-		this.idTemPedido = idTemPedido;
+	public ItemPedido(Integer idItemPedido, Pedido pedido, Produto produto, int quantidade) {
+		this.idItemPedido = idItemPedido;
 		this.pedido = pedido;
 		this.produto = produto;
 		this.quantidade = quantidade;
@@ -24,10 +37,10 @@ public class ItemPedido {
 	}
 	
 	public Integer getIdTemPedido() {
-		return idTemPedido;
+		return idItemPedido;
 	}
-	public void setIdTemPedido(Integer idTemPedido) {
-		this.idTemPedido = idTemPedido;
+	public void setIdTemPedido(Integer idItemPedido) {
+		this.idItemPedido = idItemPedido;
 	}
 	public Pedido getPedido() {
 		return pedido;
@@ -50,7 +63,7 @@ public class ItemPedido {
 
 	@Override
 	public String toString() {
-		return "ItemPedido [idTemPedido=" + idTemPedido + ", pedido=" + pedido + ", produto=" + produto
+		return "ItemPedido [idTemPedido=" + idItemPedido + ", pedido=" + pedido + ", produto=" + produto
 				+ ", quantidade=" + quantidade + "]";
 	}
 	
