@@ -24,6 +24,11 @@ public class ClienteRepository {
 		return cliente;
 	}
 	
+	public Cliente update(Cliente cliente) {
+		String sql = "UPDATE CLIENTES SET nome = ? where id_cliente = ?";
+		jdbcTemplate.update(sql, new Object[] {cliente.getNome(), cliente.getIdCliente()});
+		return cliente;
+	}
 	
 	public List<Cliente> getAll(){
 		String sql = "SELECT * FROM CLIENTES";
