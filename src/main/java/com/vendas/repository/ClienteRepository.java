@@ -48,4 +48,19 @@ public class ClienteRepository {
 	}
 	
 	
+	public List<Cliente> getByIdCliente(Cliente cliente){
+		String sql = "SELECT * FROM clientes where id_cliente = "+cliente.getIdCliente();
+		
+		return jdbcTemplate.query(sql, new RowMapper<Cliente>() {
+
+			@Override
+			public Cliente mapRow(ResultSet rs, int rowNum) throws SQLException {
+				return new Cliente(rs.getInt("id_cliente"),  rs.getString("nome"));
+			}
+			
+		});
+		
+	}
+	
+	
 }

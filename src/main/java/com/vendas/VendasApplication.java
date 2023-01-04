@@ -29,6 +29,11 @@ public class VendasApplication {
 			
 			List<Cliente> clientes2 = clienteRepository.getAll();
 			clientes2.forEach(System.out::println);
+			
+			List<Cliente> clt = clienteRepository.getByIdCliente( new Cliente(1, null));
+			System.out.println("Cliente pesquisado");
+			System.out.println( clt.get(0) );
+			
 		};
 	}
 	
