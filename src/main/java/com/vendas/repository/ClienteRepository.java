@@ -31,9 +31,9 @@ public class ClienteRepository {
 
 			@Override
 			public Cliente mapRow(ResultSet rs, int rowNum) throws SQLException {
-				
 				return new Cliente(rs.getInt("ID_CLIENTE"),  rs.getString("nome"));
 			}
+			
 		});
 	}
 	
