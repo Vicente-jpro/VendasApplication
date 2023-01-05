@@ -15,7 +15,7 @@ public class Cliente {
 	@Column( name = "ID_CLIENTE")
 	private Integer idCliente;
 	
-	@Column( name = "NOME" )
+	@Column( name = "NOME", length = 100)
 	private String nome;
 	
 	
